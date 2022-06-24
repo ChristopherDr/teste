@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="model.css">
+    <link rel="stylesheet" href="input.css">
+    <!-- Link bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Link bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </head>
+<body>
+<header>
+    <div class="text-center">
+      <h1 class="p-3">Home</h1>
+      <img src="/Front/images/unknown.png" class="img-thumbnail rounded-circle w-50 " alt="SMYRNA">
+      <p> Smyrna S</p>
+    </div>
+</header>
+   <main>
+    <div id="exibe"></div>
+    <div class="dropdown text-center">
+      <button class="btn dropdown-toggle w-75 .bg-transparent border-0" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Treino do dia: 
+      </button>
+      <ul class="dropdown-menu w-75"  aria-labelledby="dropdown" >
+        <li><a class="dropdown-item text-center" href="#">A</a></li>
+        <li><a class="dropdown-item text-center" href="#">B</a></li>
+        <li><a class="dropdown-item text-center" href="#">AB</a></li>
+        <li><a class="dropdown-item text-center" href="#">C</a></li>
+      </ul>
+    </div>
+        <div class="text-center" id="divBotao">
+          <button type="button" class="btn btn-success w-75 p-3 m-2" id="testecor1" onclick="corButton()" data-bs-toggle="modal" data-bs-target="#exampleModal"> Supino </button>
+          <button type="button" class="btn btn-success w-75 p-3 m-2" id="testecor2" onclick="corButton()" data-bs-toggle="modal" data-bs-target="#exampleModal"> Desenvolvimento </button>
+          <button type="button" class="btn btn-success w-75 p-3 m-2" id="testecor3" onclick="corButton()" data-bs-toggle="modal" data-bs-target="#exampleModal"> Pull-Down </button>
+          <button type="button" class="btn btn-success w-75 p-3 m-2" id="testecor4" onclick="corButton()" data-bs-toggle="modal" data-bs-target="#exampleModal"> Puxador Frontal </button>
+        </div>
+      </div>
+   </main>
+<footer>
+  <div class="fixed-bottom m-5">
+    <a href="#" class="text-secondary text-success " style="text-decoration:none;" >Cadastrar Nova ficha</a><br>
+    <a href="#" class="text-secondary text-success " style="text-decoration:none;" >Editar Perfil</a><br>
+    <a href="#" class="text-secondary text-success " style="text-decoration:none;" >Sair</a><br>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"  >
+      <div class="modal-header" >
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar Exercício</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Exercício:</p>
+        <p>Séries</p>
+        <p>Repetições</p>
+        <p>Grupo muscular</p>
+
+        <div><input class="form-control text-center" type="number" placeholder="Insira o código gerado pela máquina"></div>
+        
+
+      </div>
+      <div class="modal-footer" style="background-color: rgba(25,135,84,255);  color: rgba(185,232,184,255); justify-content: center;">
+        <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn" style="background-color: rgba(12,145,10,255);color: white;"; data-bs-target="#teste-modal" data-bs-toggle="modal">Iniciar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL TESTE-->
+<div class="modal fade" id="teste-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar Exercício</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="/Front/images/stick gym.png" alt="Stick in gym">
+      </div>
+      <div class="modal-footer" style="background-color: rgba(25,135,84,255);  color: rgba(185,232,184,255); justify-content: center;">
+          <button type="button" class="btn " id="mudarCor" style="background-color: rgba(12,145,10,255);color: white; " data-bs-dismiss="modal" onclick="alteraBotao()" >Finalizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="views.js"></script>
+<script >
+
+  
+
+  function corButton() {
+
+      var el = document.getElementById('divBotao'); 
+      el.addEventListener('click', function(e) {
+        document.getElementById(e.target.id).style.background="grey";
+      });
+    
+  }
+
+    function alteraBotao(){
+
+      return ` <button type="button" class="btn " id="mudarCor" style="background-color: "grey";color: white; " data-bs-dismiss="modal" onclick="alteraBotao()" >Finalizar</button> `
+      
+      
+
+    }
+
+</script>
+<script src="/Front/src/js/main.js"></script>
+</body>
+</html>
